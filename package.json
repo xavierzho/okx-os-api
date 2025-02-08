@@ -1,10 +1,11 @@
 {
   "name": "okx-os-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "okx-os-api",
   "main": "dist/index.js",
+  "types": "dist/types",
   "scripts": {
-    "build": "tsc"
+    "build": "rollup -c"
   },
   "dependencies": {
     "axios": "^1.7.9"
@@ -18,5 +19,5 @@
     "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.7.3"
   },
-  "private": true
+  "license": "ISC"
 }
