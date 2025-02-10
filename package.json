@@ -2,9 +2,10 @@
   "name": "okx-os-api",
   "version": "1.0.2",
   "description": "okx-os-api",
-  "main": "src/index.ts",
+  "main": "dist/index.cjs",
+  "module": "dist/index.esm.js",
   "type": "module",
-  "types": "dist/types",
+  "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
@@ -26,5 +27,6 @@
     "rollup-plugin-typescript2": "^0.36.0",
     "typescript": "^5.7.3"
   },
-  "license": "ISC"
+  "license": "ISC",
+  "files": ["dist"]
 }
