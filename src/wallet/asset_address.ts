@@ -1,5 +1,5 @@
 import {
-  AddressEntry,
+  AddressEntry, AddressIndex,
   AirdropRisk, ApprovalProject,
   AssetType,
   BalancesByAddress,
@@ -16,9 +16,9 @@ export class AssetByAddress {
   }
 
   // https://www.okx.com/zh-hans/web3/build/docs/waas/walletapi-api-total-token-value-address
-  async total_value(address: string, chains: string[], assetType = AssetType.all, excludeRiskToken = true) {
+  total_value(address: string, chains: string[], assetType = AssetType.all, excludeRiskToken = true) {
     const path = '/wallet/asset/total-value-by-address'
-    return await this.client.sendRequest<TotalValueEntry, TotalValue>('GET', path, {
+    return this.client.sendRequest<TotalValueEntry, TotalValue>('GET', path, {
       address,
       chains: chains.join(','),
       assetType,
@@ -47,7 +47,7 @@ export class AssetByAddress {
   }
 
   // https://www.okx.com/zh-hans/web3/build/docs/waas/walletapi-api-utxos
-  async utxos(params: AddressEntry, cursor = '1', limit = '50') {
+  async utxos(params: AddressIndex, cursor = '1', limit = '50') {
     const path = '/wallet/utxo/utxos'
     if (Number(limit) > 100) {
       throw new Error('max exceed limit 100')

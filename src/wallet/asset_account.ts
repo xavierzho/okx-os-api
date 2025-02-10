@@ -3,7 +3,7 @@ import {AddressEntry, AirdropRisk, AssetType, BalancesByAddress, TotalValue} fro
 
 
 export class AssetByAccount {
-  client: Request
+  private client: Request
   constructor(client: Request) {
     this.client = client
   }

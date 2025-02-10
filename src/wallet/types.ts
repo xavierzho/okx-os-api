@@ -297,7 +297,8 @@ export interface PreTxOptions {
   permissionType?: string // only tron
   feeLimit?: string // only tron, contract interact must provide, default: 30000000
 }
-export interface EvmGasPrice{
+
+export interface EvmGasPrice {
   normal: string
   min: string
   max: string
@@ -309,12 +310,14 @@ export interface EvmGasPrice{
     fastPriorityFee: string
   }
 }
+
 export interface EvmSignData {
   gasLimit: string
   nonce: string
   gasPrice: EvmGasPrice
 }
-export interface UtxoGasPrice{
+
+export interface UtxoGasPrice {
   normalFeeRate: string
   maxFeeRate: string
   minFeeRate: string
@@ -358,7 +361,7 @@ export interface Nonce {
   pendingNonce: string
 }
 
-export interface SuiObjectEntry extends  AddressEntry{
+export interface SuiObjectEntry extends AddressEntry {
   address: string
 }
 
@@ -371,11 +374,13 @@ export interface SuiObject {
     objectId: string
   }[]
 }
+
 export enum AddressType {
-  none='0',
-  user='1',
-  contract='2'
+  none = '0',
+  user = '1',
+  contract = '2'
 }
+
 export interface AddressTag {
   addressType: AddressType
   hitBlacklist: boolean
@@ -388,11 +393,13 @@ export interface SendTxEntry {
   address: string
   accountId?: string
 }
+
 export enum TxStatus {
-  pending= '1',
-  success='2',
-  failed='3'
+  pending = '1',
+  success = '2',
+  failed = '3'
 }
+
 export interface QueryTxsEntry {
   address?: string
   accountId?: string
@@ -410,4 +417,36 @@ export interface OrderStatus {
   orderId: string
   txHash: string
   txStatus: TxStatus
+}
+
+
+export interface BroadcastEntry {
+  signedTx: string;
+  chainIndex: string;
+  address: string;
+  accountId?: string;
+}
+
+export interface OrderListEntry {
+  address?: string;
+  accountId?: string;
+  chainIndex?: string;
+  txStatus?: string;
+  orderId?: string;
+  cursor?: string;
+  limit?: string;
+}
+
+export interface Ordered {
+  chainIndex: string;
+  accountId: string;
+  orderId: string;
+  address: string;
+  txHash: string;
+  txstatus: string;
+}
+
+export interface AddressIndex {
+  chainIndex: string;
+  address: string;
 }
