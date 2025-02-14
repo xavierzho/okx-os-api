@@ -6,8 +6,8 @@ export class ordinalsOrder {
   constructor(client: Request) {
     this.client = client
   }
-  async get_alid_inscriptions(params: RequestValidInscriptions) {
-    const path = '/marketplace/ordinals/valid-inscriptions'
+  async get_valid_inscriptions(params: RequestValidInscriptions) {
+    const path = '/marketplace/ordinals/get-valid-inscriptions'
     return await this.client.sendRequest<
       RequestValidInscriptions,
       ResponseValidInscriptions

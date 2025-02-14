@@ -12,3 +12,4 @@ export interface Request {
 }
 
 export * from './wallet/types'
+export * from './marketplace/types'
