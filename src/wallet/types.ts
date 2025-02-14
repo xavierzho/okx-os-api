@@ -1,27 +1,27 @@
 export interface AddressEntry {
-  chainIndex: string;
-  tokenAddress: string;
+  chainIndex: string
+  tokenAddress: string
 }
 
 export interface Price {
-  price: string;
-  time: string;
-  chainIndex: string;
-  tokenAddress: string;
+  price: string
+  time: string
+  chainIndex: string
+  tokenAddress: string
 }
 
 export interface SupportedChain {
-  name: string;
-  logoUrl: string;
-  shortName: string;
-  chainIndex: string;
+  name: string
+  logoUrl: string
+  shortName: string
+  chainIndex: string
 }
 
 export interface HistoryPriceEntry extends AddressEntry {
-  limit?: string;
-  cursor?: string;
-  begin?: string;
-  period?: string;
+  limit?: string
+  cursor?: string
+  begin?: string
+  period?: string
 }
 
 export interface CursorItem {
@@ -30,15 +30,15 @@ export interface CursorItem {
 
 export interface HistoryPrice {
   prices: {
-    time: string;
-    price: string;
-  }[];
+    time: string
+    price: string
+  }[]
 }
 
 export interface BalancesByAddressEntry {
-  address: string;
-  tokenAddresses: AddressEntry[];
-  filter?: AirdropRisk;
+  address: string
+  tokenAddresses: AddressEntry[]
+  filter?: AirdropRisk
 }
 
 export enum AirdropRisk {
@@ -48,25 +48,24 @@ export enum AirdropRisk {
 
 export interface BalancesByAddress {
   tokenAssets: {
-    chainIndex: string;
-    tokenAddress: string;
-    address: string;
-    symbol: string;
-    balance: string;
-    rawBalance: string;
-    tokenPrice: string;
-    tokenType: string;
-    transferAmount: string;
-    availableAmount: string;
-    isRiskToken: boolean;
-  }[];
+    chainIndex: string
+    tokenAddress: string
+    address: string
+    symbol: string
+    balance: string
+    rawBalance: string
+    tokenPrice: string
+    tokenType: string
+    transferAmount: string
+    availableAmount: string
+    isRiskToken: boolean
+  }[]
 }
-
 
 export interface TokenInfo {
   logoUrl: string
   officialWebsite: string
-  socialUrls: Social,
+  socialUrls: Social
   decimals: string
   tokenAddress: string
   chainIndex: string
@@ -86,7 +85,7 @@ export interface Social {
 export enum AssetType {
   all = '0',
   onlyToken = '1',
-  onlyDefi = '2'
+  onlyDefi = '2',
 }
 
 export interface TotalValueEntry {
@@ -101,7 +100,7 @@ export interface TotalValue {
 }
 
 export interface Utxo {
-  txHash: string,
+  txHash: string
   voutIndex: string
   amount: string
   spendStatus: string
@@ -124,7 +123,7 @@ export interface Inscriptions {
   utxoStatus: string
   unresolved: any[]
   btcAssets: {
-    protocol: Protocol,
+    protocol: Protocol
     tokenAmount: string
     eventType: string
     decimal: string
@@ -140,7 +139,7 @@ export enum Protocol {
   ARC20 = '2',
   Runes = '3',
   OrdiNft = '4',
-  SRC20 = '5'
+  SRC20 = '5',
 }
 
 export interface ApprovalProject {
@@ -199,7 +198,6 @@ export interface AccountTxsEntry {
   limit?: string
 }
 
-
 export interface TransactionDetail {
   chainIndex: string
   height: string
@@ -252,27 +250,27 @@ export interface internalTransfer {
 
 export interface InscriptionTx {
   transactionDetails: {
-    txHash: string;
-    blockHash: string;
-    height: string;
-    txTime: string; // 或 number，如果需要进行时间计算
-    from: string;
-    to: string;
-    amount: string; // 或 number，如果需要进行数值计算
-    symbol: string;
-    eventType: string;
-    tokenInscriptionId: string;
-    protocol: string;
-    txStatus: string;
-    inscriptionId: string;
-    inscriptionNumber: string;
-    outputIndex: string;
+    txHash: string
+    blockHash: string
+    height: string
+    txTime: string // 或 number，如果需要进行时间计算
+    from: string
+    to: string
+    amount: string // 或 number，如果需要进行数值计算
+    symbol: string
+    eventType: string
+    tokenInscriptionId: string
+    protocol: string
+    txStatus: string
+    inscriptionId: string
+    inscriptionNumber: string
+    outputIndex: string
   }[]
 }
 
 export enum UpdateType {
   add = 'add',
-  delete = 'delete'
+  delete = 'delete',
 }
 
 export interface UpdateAccountEntry {
@@ -280,7 +278,6 @@ export interface UpdateAccountEntry {
   updateType: UpdateType
   addresses: AddressEntry[]
 }
-
 
 export interface PreTxEntry {
   chainIndex: string
@@ -378,7 +375,7 @@ export interface SuiObject {
 export enum AddressType {
   none = '0',
   user = '1',
-  contract = '2'
+  contract = '2',
 }
 
 export interface AddressTag {
@@ -397,7 +394,7 @@ export interface SendTxEntry {
 export enum TxStatus {
   pending = '1',
   success = '2',
-  failed = '3'
+  failed = '3',
 }
 
 export interface QueryTxsEntry {
@@ -419,34 +416,33 @@ export interface OrderStatus {
   txStatus: TxStatus
 }
 
-
 export interface BroadcastEntry {
-  signedTx: string;
-  chainIndex: string;
-  address: string;
-  accountId?: string;
+  signedTx: string
+  chainIndex: string
+  address: string
+  accountId?: string
 }
 
 export interface OrderListEntry {
-  address?: string;
-  accountId?: string;
-  chainIndex?: string;
-  txStatus?: string;
-  orderId?: string;
-  cursor?: string;
-  limit?: string;
+  address?: string
+  accountId?: string
+  chainIndex?: string
+  txStatus?: string
+  orderId?: string
+  cursor?: string
+  limit?: string
 }
 
 export interface Ordered {
-  chainIndex: string;
-  accountId: string;
-  orderId: string;
-  address: string;
-  txHash: string;
-  txstatus: string;
+  chainIndex: string
+  accountId: string
+  orderId: string
+  address: string
+  txHash: string
+  txstatus: string
 }
 
 export interface AddressIndex {
-  chainIndex: string;
-  address: string;
+  chainIndex: string
+  address: string
 }
