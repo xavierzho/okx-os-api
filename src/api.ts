@@ -1,6 +1,6 @@
 import { Client, OkxConfig } from './client'
 import { WalletAPI } from './wallet'
-import { MarketPlaceAPI } from './marketPlace'
+import { MarketPlaceAPI } from './marketplace'
 export class OkxOsApi {
   _client: Client
   _wallet: WalletAPI

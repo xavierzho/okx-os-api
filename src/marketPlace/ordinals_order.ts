@@ -1,5 +1,10 @@
 import { Request } from '../types'
-import { RequestValidInscriptions, ResponseValidInscriptions } from './types'
+import {
+  RequestMakeOrders,
+  RequestValidInscriptions,
+  ResponseMakeOrders,
+  ResponseValidInscriptions,
+} from './types'
 
 export class ordinalsOrder {
   private client: Request
@@ -11,6 +16,14 @@ export class ordinalsOrder {
     return await this.client.sendRequest<
       RequestValidInscriptions,
       ResponseValidInscriptions
-    >('GET', path, params)
+    >('POST', path, params)
+  }
+  async make_orders(params: RequestMakeOrders) {
+    const path = '/mktplace/nft/ordinals/okx/make-orders'
+    return await this.client.sendRequest<RequestMakeOrders, ResponseMakeOrders>(
+      'POST',
+      path,
+      params
+    )
   }
 }
