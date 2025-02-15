@@ -4,6 +4,6 @@
 
 ## Features
 
--[x] Wallet API
--[ ] DEX API
--[ ] Marketplace API
+- [x] Wallet API
+- [ ] DEX API
+- [x] Marketplace API
