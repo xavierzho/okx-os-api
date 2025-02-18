@@ -10,9 +10,8 @@ export default [
     output: {
       file: 'dist/index.cjs',
       format: 'cjs',
-      sourcemap: true
     },
-    external: ['axios'],
+    external: ['axios', 'node:crypto'],
     plugins: [typescript({tsconfig: './tsconfig.json'}), commonjs(), resolve(), json()]
   },
   {

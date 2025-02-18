@@ -1,4 +1,4 @@
-import { Request } from '../types'
+import {HistoryTxs, Request} from '../types'
 import {
   AccountTxsEntry,
   AddressEntry,
@@ -6,7 +6,6 @@ import {
   CursorItem,
   InscriptionTx,
   Protocol,
-  Transaction,
   TransactionDetail,
 } from './types'
 
@@ -19,7 +18,7 @@ export class PostTransaction {
 
   async address_history(params: AddressTxsEntry) {
     const path = '/wallet/post-transaction/transactions-by-address'
-    return await this.client.sendRequest<AddressTxsEntry, Transaction[]>(
+    return await this.client.sendRequest<AddressTxsEntry, HistoryTxs>(
       'GET',
       path,
       params
@@ -28,7 +27,7 @@ export class PostTransaction {
 
   async account_history(params: AccountTxsEntry) {
     const path = '/wallet/post-transaction/transactions'
-    return await this.client.sendRequest<any, Transaction[]>(
+    return await this.client.sendRequest<any, HistoryTxs>(
       'GET',
       path,
       params
@@ -59,10 +58,10 @@ export class PostTransaction {
     if (Number(limit) > 100) throw new Error('max exceed limit 100')
     return await this.client.sendRequest<
       AddressEntry & {
-        protocol: Protocol
-        cursor?: string
-        limit?: string
-      },
+      protocol: Protocol
+      cursor?: string
+      limit?: string
+    },
       (InscriptionTx & CursorItem)[]
     >('GET', path, {
       ...address,

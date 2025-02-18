@@ -16,6 +16,10 @@ export class OkxOsApi {
   get wallet() {
     return this._wallet
   }
+
+  get marketplace() {
+    return this._marketPlace
+  }
 }
 
 export default OkxOsApi

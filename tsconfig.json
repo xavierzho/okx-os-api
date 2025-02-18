@@ -8,8 +8,8 @@
     "strict": true,
     "skipLibCheck": true,
     "outDir": "dist",
-    "emitDeclarationOnly": true, /* 只生成声明文件，不生成 js 文件*/
-    "rootDir": "./src", /* 指定输出文件目录（用于输出），用于控制输出目录结构 */
+    "emitDeclarationOnly": true,
+    "rootDir": "./src",
     "resolveJsonModule": true,
 
   },

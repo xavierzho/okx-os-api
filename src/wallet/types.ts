@@ -187,7 +187,12 @@ export interface Transaction {
   tag: string
   itype: string
 }
+export interface HistoryTx {
+  cursor: string,
+  transactionList: Transaction[]
+}
 
+export type HistoryTxs = HistoryTx[]
 export interface AccountTxsEntry {
   accountId: string
   chainIndex?: string
