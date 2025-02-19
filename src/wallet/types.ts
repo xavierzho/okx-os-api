@@ -176,8 +176,8 @@ export interface Transaction {
   method: string
   nonce: string
   txTime: string
-  from: AddressAmount
-  to: AddressAmount
+  from: AddressAmount[]
+  to: AddressAmount[]
   tokenAddress: string
   amount: string
   symbol: string
@@ -252,26 +252,34 @@ export interface internalTransfer {
   amount: string
   state?: string
 }
-
-export interface InscriptionTx {
-  transactionDetails: {
-    txHash: string
-    blockHash: string
-    height: string
-    txTime: string // 或 number，如果需要进行时间计算
-    from: string
-    to: string
-    amount: string // 或 number，如果需要进行数值计算
-    symbol: string
-    eventType: string
-    tokenInscriptionId: string
-    protocol: string
-    txStatus: string
-    inscriptionId: string
-    inscriptionNumber: string
-    outputIndex: string
-  }[]
+export interface InscriptionDetailRequest {
+  chainIndex: string
+  txHash: string
+  protocol: Protocol
+  cursor?: string
+  limit?: string
 }
+export interface InscriptionTx{
+  txHash: string
+  blockHash: string
+  height: string
+  txTime: string // 或 number，如果需要进行时间计算
+  from: string
+  to: string
+  amount: string // 或 number，如果需要进行数值计算
+  symbol: string
+  eventType: string
+  tokenInscriptionId: string
+  protocol: string
+  txStatus: string
+  inscriptionId: string
+  inscriptionNumber: string
+  outputIndex: string
+}
+export type InscriptionTxs = {
+  cursor: string
+  transactionDetails: InscriptionTx[]
+}[]
 
 export enum UpdateType {
   add = 'add',

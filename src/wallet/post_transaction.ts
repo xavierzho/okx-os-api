@@ -1,13 +1,13 @@
-import {HistoryTxs, Request} from '../types'
 import {
   AccountTxsEntry,
-  AddressEntry,
   AddressTxsEntry,
-  CursorItem,
-  InscriptionTx,
   Protocol,
   TransactionDetail,
-} from './types'
+  HistoryTxs,
+  InscriptionDetailRequest,
+  InscriptionTxs,
+  Request
+} from '../types'
 
 export class PostTransaction {
   client: Request
@@ -48,23 +48,18 @@ export class PostTransaction {
   }
 
   async inscription(
-    address: AddressEntry,
-    protocol: Protocol,
+    chainIndex: string,
+    txHash: string,
+    protocol: Protocol = Protocol.BRC20,
+    limit = '20',
     cursor = '1',
-    limit = '20'
   ) {
     const path =
       '/wallet/post-transaction/inscription-transaction-detail-by-txhash'
     if (Number(limit) > 100) throw new Error('max exceed limit 100')
-    return await this.client.sendRequest<
-      AddressEntry & {
-      protocol: Protocol
-      cursor?: string
-      limit?: string
-    },
-      (InscriptionTx & CursorItem)[]
-    >('GET', path, {
-      ...address,
+    return await this.client.sendRequest<InscriptionDetailRequest, InscriptionTxs>('GET', path, {
+      chainIndex,
+      txHash,
       protocol,
       cursor,
       limit,
