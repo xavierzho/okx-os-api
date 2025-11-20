@@ -1,6 +1,6 @@
 {
   "name": "okx-os-api",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "okx-os-api",
   "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
