@@ -17,4 +17,8 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
+        # fallback when lockfile is absent; replace npm ci with npm install
+        if: ${{ hashFiles('package-lock.json') != '' }}
+      - run: npm install
+        if: ${{ hashFiles('package-lock.json') == '' }}
       - run: npm run build
