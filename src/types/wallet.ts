@@ -10,7 +10,7 @@ export interface Price {
   tokenAddress: string
 }
 
-export interface SupportedChain {
+export interface WalletSupportedChain {
   name: string
   logoUrl: string
   shortName: string
@@ -24,7 +24,7 @@ export interface HistoryPriceEntry extends AddressEntry {
   period?: string
 }
 
-export interface CursorItem {
+export interface CursorPage {
   cursor: string
 }
 
@@ -123,7 +123,7 @@ export interface Inscriptions {
   utxoStatus: string
   unresolved: any[]
   btcAssets: {
-    protocol: Protocol
+    protocol: WalletProtocol
     tokenAmount: string
     eventType: string
     decimal: string
@@ -134,7 +134,7 @@ export interface Inscriptions {
   }[]
 }
 
-export enum Protocol {
+export enum WalletProtocol {
   BRC20 = '1',
   ARC20 = '2',
   Runes = '3',
@@ -203,6 +203,13 @@ export interface AccountTxsEntry {
   limit?: string
 }
 
+export interface AccountDetailQuery {
+  accountId: string
+  cursor?: string
+  limit?: string
+  chainIndex?: string
+}
+
 export interface TransactionDetail {
   chainIndex: string
   height: string
@@ -255,7 +262,7 @@ export interface internalTransfer {
 export interface InscriptionDetailRequest {
   chainIndex: string
   txHash: string
-  protocol: Protocol
+  protocol: WalletProtocol
   cursor?: string
   limit?: string
 }
@@ -302,7 +309,7 @@ export interface PreTxEntry {
 
 export interface PreTxOptions {
   inputData?: string // calldata
-  protocol?: Protocol // only btc
+  protocol?: WalletProtocol // only btc
   tokenAddress?: string // only solana
   permissionType?: string // only tron
   feeLimit?: string // only tron, contract interact must provide, default: 30000000
@@ -404,17 +411,13 @@ export interface SendTxEntry {
   accountId?: string
 }
 
-export enum TxStatus {
-  pending = '1',
-  success = '2',
-  failed = '3',
-}
+export type WalletTxStatus = 'pending' | 'success' | 'failure'
 
 export interface QueryTxsEntry {
   address?: string
   accountId?: string
   chainIndex?: string
-  txStatus?: TxStatus
+  txStatus?: WalletTxStatus
   orderId?: string
   cursor?: string
   limit?: string
@@ -426,7 +429,7 @@ export interface OrderStatus {
   accountId: string
   orderId: string
   txHash: string
-  txStatus: TxStatus
+  txStatus: WalletTxStatus
 }
 
 export interface BroadcastEntry {

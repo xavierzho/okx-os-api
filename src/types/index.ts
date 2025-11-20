@@ -3,6 +3,7 @@ export interface Response<T> {
   msg: string
   data?: T
 }
+
 export interface Request {
   sendRequest<Params, Return>(
     method: string,
@@ -11,5 +12,6 @@ export interface Request {
   ): Promise<Return>
 }
 
-export * from './wallet/types'
-export * from './marketplace/types'
+export * from './wallet'
+export * from './marketplace'
+export * from './dex'

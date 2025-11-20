@@ -1,6 +1,6 @@
 {
   "name": "okx-os-api",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "okx-os-api",
   "main": "dist/index.cjs",
   "module": "dist/index.esm.js",
@@ -32,5 +32,6 @@
   "license": "ISC",
   "files": [
     "dist"
-  ]
+  ],
+  "keywords": ["okx"]
 }

@@ -1,6 +1,6 @@
 export * from './api'
 
-export * from './types'
-export * from './constants'
+export * from './types/index'
 export * from './client'
-export * from './wallet'
+export * from './apiBuilder'
+export * from './apiConfig'
