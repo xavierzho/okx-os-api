@@ -19,6 +19,8 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
           cache: npm
+      - name: Update npm
+        run: npm install -g npm@latest
       - run: npm ci
         if: ${{ hashFiles('package-lock.json') != '' }}
       - run: npm install
