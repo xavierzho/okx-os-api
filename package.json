@@ -6,6 +6,14 @@
   "module": "dist/index.esm.js",
   "type": "module",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xavierzho/okx-os-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xavierzho/okx-os-api/issues"
+  },
+  "homepage": "https://github.com/xavierzho/okx-os-api#readme",
   "exports": {
     ".": {
       "import": "./dist/index.esm.js",
@@ -34,6 +42,7 @@
     "dist"
   ],
   "keywords": [
-    "okx"
+    "okx",
+    "web3"
   ]
 }

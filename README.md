@@ -1,11 +1,13 @@
 ## OKX OS API
-[official website](https://www.okx.com/zh-hans/web3/build/docs/waas/okx-waas-what-is-waas)
-
+[![npm version](https://img.shields.io/npm/v/okx-os-api.svg)](https://www.npmjs.com/package/okx-os-api)
+[![license](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![build](https://img.shields.io/badge/build-rollup-brightgreen.svg)](#)
+[![docs](https://img.shields.io/badge/docs-OKX%20Web3-blue)](https://www.okx.com/zh-hans/web3/build/docs/waas/okx-waas-what-is-waas)
 
 ## Features
 
 - [x] Wallet API
-- [ ] DEX API
+- [x] DEX API
 - [x] Marketplace API
 
 ## Install
@@ -61,3 +63,7 @@ const time = await custom.server_time()
 
 - Requests are signed per OKX OS spec; `createOkxOsApi` accepts an optional `apiConfig` if you want to swap the entire API tree.
 - Build with `npm run build`. The CLI may time out in some environments despite successful emits; rerun locally if you need a zero exit code.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md).
