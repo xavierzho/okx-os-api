@@ -26,19 +26,15 @@ type EndpointHandler<E extends EndpointDefinition> = (
   params?: EndpointParams<E>
 ) => Promise<EndpointReturn<E>>
 
-export type ApiTreeFromDefinition<T extends ApiModuleDefinition> = (T['endpoints'] extends Record<
-  string,
-  EndpointDefinition
->
-  ? {
-      [K in keyof T['endpoints']]: EndpointHandler<T['endpoints'][K]>
-    }
-  : {}) &
-  (T['modules'] extends Record<string, ApiModuleDefinition>
-    ? {
-        [K in keyof T['modules']]: ApiTreeFromDefinition<T['modules'][K]>
-      }
-    : {})
+export type ApiTreeFromDefinition<T extends ApiModuleDefinition> = {
+  [K in keyof NonNullable<T['endpoints']>]: EndpointHandler<
+    NonNullable<T['endpoints']>[K]
+  >
+} & {
+  [K in keyof NonNullable<T['modules']>]: ApiTreeFromDefinition<
+    NonNullable<T['modules']>[K]
+  >
+}
 
 export const defineEndpoint = <P, R>(definition: EndpointDefinition<P, R>) =>
   definition
