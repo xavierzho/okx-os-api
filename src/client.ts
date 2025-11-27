@@ -48,7 +48,7 @@ export class Client implements Request {
       return `${timestamp}${method}${this.apiPrefix}${requestPath}`
     }
     const stringifyParams =
-      method === 'GET'
+      method === 'GET' && params
         ? `?${new URLSearchParams(params as any).toString()}`
         : JSON.stringify(params)
     return `${timestamp}${method}${this.apiPrefix}${requestPath}${stringifyParams}`
